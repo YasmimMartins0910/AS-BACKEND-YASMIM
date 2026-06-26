@@ -1,0 +1,267 @@
+{
+  "info": {
+    "_postman_id": "d23d8901-202a-4ecd-870e-abadace76eb0",
+    "name": "Bolão Copa 2026",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53895895",
+    "_collection_link": "https://go.postman.co/collection/53895895-d23d8901-202a-4ecd-870e-abadace76eb0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "LOGIN POST",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"yasmim@email.com\",\r\n  \"senha\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LISTAR JOGOS GET",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{supabase_service_role_api_key_0cfo}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/jogos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "jogos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CRIAR PALPITE POST",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{supabase_service_role_api_key_0cfo}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"time_a\": \"Brasil\",\r\n  \"time_b\": \"Japão\",\r\n  \"gols_a\": 3,\r\n  \"gols_b\": 1,\r\n  \"data_jogo\": \"2026-06-11\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/palpites",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "palpites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "LISTAR MEUS PALPITES GET",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{supabase_service_role_api_key_0cfo}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/palpites",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "palpites"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ATUALIZAR PALPITE PUT",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0cfo}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"gols_a\": 3,\r\n  \"gols_b\": 2\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/palpites/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "palpites",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETAR PALPITE",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{json_web_token_0cfo}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/palpites/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "palpites",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "TESTE WORLDCUP API",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3333/games",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3333",
+          "path": [
+            "games"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_17ql",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_0gv8",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_08pb",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_00qy",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_16yf",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0no2",
+      "secret": true
+    },
+    {
+      "key": "auth_secret_0cfo",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0cfo",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0cfo",
+      "secret": true
+    }
+  ]
+}
