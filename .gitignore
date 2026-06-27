@@ -8,6 +8,3 @@ node_modules/
 # Arquivos de ambiente e logs
 .env
 npm-debug.log
-
-# API externa/local usada para testes
-WorldCupAPI/
