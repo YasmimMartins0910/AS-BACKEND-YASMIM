@@ -74,7 +74,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "{{supabase_service_role_api_key_0cfo}}",
+              "value": "{{supabase_service_role_api_key_02fb}}",
               "type": "string"
             }
           ]
@@ -83,7 +83,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n  \"time_a\": \"Brasil\",\r\n  \"time_b\": \"Japão\",\r\n  \"gols_a\": 3,\r\n  \"gols_b\": 1,\r\n  \"data_jogo\": \"2026-06-11\"\r\n}",
+          "raw": "{\r\n  \"time_a\": \"Brasil\",\r\n  \"time_b\": \"França\",\r\n  \"gols_a\": 2,\r\n  \"gols_b\": 1,\r\n  \"data_jogo\": \"2026-06-11\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -113,7 +113,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "{{supabase_service_role_api_key_0cfo}}",
+              "value": "{{supabase_service_role_api_key_02fb}}",
               "type": "string"
             }
           ]
@@ -261,6 +261,14 @@
     },
     {
       "key": "supabase_service_role_api_key_0cfo",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0qg9",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_02fb",
       "secret": true
     }
   ]
