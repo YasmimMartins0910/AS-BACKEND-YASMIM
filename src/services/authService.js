@@ -25,11 +25,6 @@ async function login(email, senha) {
 
   return {
     token,
-    usuario: {
-      id: usuario.id,
-      nome: usuario.nome,
-      email: usuario.email,
-    },
   };
 }
 
