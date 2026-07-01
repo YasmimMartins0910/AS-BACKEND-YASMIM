@@ -4,7 +4,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 
 const routes = express.Router();
 
-//todas as rotas de palpites passm pelo authMiddle,
+//todas as rotas de palpites passam pelo authMiddleware,
 //só vão funcionar com o token válido
 routes.post('/palpites', authMiddleware, palpitesController.criarPalpite);
 routes.get('/palpites', authMiddleware, palpitesController.listarMeusPalpites);
