@@ -1,3 +1,9 @@
+//aquivo que liga o servidor
+
+//carrega as variáveis do .env
+
+//importa o app principal.
+
 require('dotenv').config();
 
 const app = require('./app');

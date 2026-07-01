@@ -1,3 +1,5 @@
+//rota pública para consumir a API de futebol e tratar a resposta
+
 const express = require('express');
 const jogosController = require('../controllers/jogosController');
 

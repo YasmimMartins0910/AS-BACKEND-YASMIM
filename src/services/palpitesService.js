@@ -1,6 +1,7 @@
 const axios = require('axios');
 const connection = require('../database/connection');
 
+//função pra receber o id do usuário e os dados no body
 async function criarPalpite(usuarioId, dados) {
   const { time_a, time_b, gols_a, gols_b, data_jogo } = dados;
 
@@ -10,23 +11,28 @@ async function criarPalpite(usuarioId, dados) {
     throw erro;
   }
 
+  //pego o ano da data
   const anoDoJogo = new Date(data_jogo).getFullYear();
 
+  //uso o promisse.all pra buscar o dólar e os feriados ao mesmo tempo
   const [respostaDolar, respostaFeriados] = await Promise.all([
     axios.get('https://economia.awesomeapi.com.br/json/last/USD-BRL'),
     axios.get(`https://brasilapi.com.br/api/feriados/v1/${anoDoJogo}`),
   ]);
 
+  //pego o dólar
   const dolarNoDia = respostaDolar.data.USDBRL.bid;
 
   const feriados = respostaFeriados.data;
 
+  //verifico se a data é feriado
   const ehFeriado = feriados.some((feriado) => {
     return feriado.date === data_jogo;
   });
 
   const jogo = `${time_a} x ${time_b}`;
 
+  //insiro no banco
   const [id] = await connection('palpites').insert({
     usuario_id: usuarioId,
     jogo,
@@ -37,11 +43,13 @@ async function criarPalpite(usuarioId, dados) {
     dia_de_feriado: ehFeriado ? 'Sim' : 'Não',
   });
 
+  //busco o palpite que salvou e retorno
   const palpiteSalvo = await connection('palpites').where({ id }).first();
 
   return palpiteSalvo;
 }
 
+//uso o id que veio do token e filtro no banco, pro usuário ver só seus próprios palpites
 async function listarMeusPalpites(usuarioId) {
   const palpites = await connection('palpites')
     .where({ usuario_id: usuarioId })
@@ -73,6 +81,7 @@ async function atualizarPalpite(id, usuarioId, dados) {
     throw erro;
   }
 
+  //antes de atualizar, verifico se o palpite existe e se é daquele usuário logado
   await connection('palpites').where({ id }).update({
     gols_a,
     gols_b,
@@ -98,6 +107,7 @@ async function deletarPalpite(id, usuarioId) {
     throw erro;
   }
 
+  //segue a mesma regra para atualizar
   await connection('palpites').where({ id }).delete();
 
   return {

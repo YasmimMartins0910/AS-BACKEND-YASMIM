@@ -1,3 +1,7 @@
+//recebe a requisição da rota /api/jogos
+
+//devolve a lista de jogos tratada
+
 const jogosService = require('../services/jogosService');
 
 async function listarJogos(req, res) {

@@ -1,3 +1,9 @@
+//arquivo que configura o knex
+
+//aqui eu digo para o knex usar SQlite
+
+//informo aonde ficam os arquivos
+
 require('dotenv').config();
 
 module.exports = {

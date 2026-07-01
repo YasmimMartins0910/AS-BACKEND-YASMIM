@@ -1,3 +1,7 @@
+//arquivo que eu crio a tabela palpites
+
+//usuario_id é FK ligada ao usuário, pra que cada palpite pertença a um usuário
+
 exports.up = function (knex) {
   return knex.schema.createTable('palpites', function (table) {
     table.increments('id').primary();

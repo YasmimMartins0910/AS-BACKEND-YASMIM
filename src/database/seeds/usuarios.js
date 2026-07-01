@@ -1,3 +1,9 @@
+//aqui no seeds eu crio meus dois usuários de teste
+
+//limpo os palpites e usuários antigos
+
+//a senha é criptografada com bcrypt pra ficar mais seguro
+
 const bcrypt = require('bcrypt');
 
 exports.seed = async function (knex) {

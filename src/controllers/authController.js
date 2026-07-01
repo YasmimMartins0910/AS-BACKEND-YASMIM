@@ -1,3 +1,7 @@
+//aqui ele vai receber o email e a senha do body,
+
+//chama o service e vai devolver a resposta com a mensagem e o token
+
 const authService = require('../services/authService');
 
 async function login(req, res) {

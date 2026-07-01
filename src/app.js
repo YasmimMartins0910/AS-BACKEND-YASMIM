@@ -1,3 +1,6 @@
+//arquivo que configura o express
+//e conecta as rotas
+
 const express = require('express');
 
 const authRoutes = require('./routes/authRoutes');
@@ -6,6 +9,7 @@ const palpitesRoutes = require('./routes/palpitesRoutes');
 
 const app = express();
 
+//ativo o express.json pra API entender JSON no body
 app.use(express.json());
 
 app.use('/api', authRoutes);

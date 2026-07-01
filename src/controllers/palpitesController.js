@@ -1,5 +1,10 @@
+//controla o CRUD dos palpites
+
 const palpitesService = require('../services/palpitesService');
 
+//basicamente ele recebe os dados do body, params ou token, chama o service e devolve a resposta
+
+//as regras deles estão tudo no palpitesService
 async function criarPalpite(req, res) {
   try {
     const usuarioId = req.usuarioId;

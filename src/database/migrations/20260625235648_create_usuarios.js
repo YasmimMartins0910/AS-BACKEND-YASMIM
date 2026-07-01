@@ -1,3 +1,7 @@
+//arquivo que eu crio a tabela usuários
+
+//email é único, id é autoincremento e criado_em preenche automaticamente
+
 exports.up = function (knex) {
   return knex.schema.createTable('usuarios', function (table) {
     table.increments('id').primary();
