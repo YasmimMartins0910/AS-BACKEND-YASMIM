@@ -34,7 +34,7 @@ function authMiddleware(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     //salvo o id do usuário em req.usuarioId para depois os
-    //controller e services usarem esse id pra ver que está logado
+    //controller e services usarem esse id pra ver quem está logado
     req.usuarioId = decoded.id;
 
     //libero a rota
