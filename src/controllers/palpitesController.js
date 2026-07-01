@@ -7,8 +7,9 @@ const palpitesService = require('../services/palpitesService');
 //as regras deles estão tudo no palpitesService
 async function criarPalpite(req, res) {
   try {
-    const usuarioId = req.usuarioId;
+    const usuarioId = req.usuarioId; //id do usuário logado
 
+    //chamo o service e recebo os dados do body
     const palpite = await palpitesService.criarPalpite(usuarioId, req.body);
 
     return res.status(201).json(palpite);
