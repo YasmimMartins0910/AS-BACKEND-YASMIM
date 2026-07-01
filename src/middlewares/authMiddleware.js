@@ -3,7 +3,7 @@
 const jwt = require('jsonwebtoken');
 
 function authMiddleware(req, res, next) {
-  //pego o token da aba de authorization e verifico se é bearer token
+  //pego o token da aba do header/authorization e verifico se é bearer token
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
@@ -12,7 +12,7 @@ function authMiddleware(req, res, next) {
     });
   }
 
-  //verifico se veio no formato certo
+  //aqui eu separo o bearer do token, porque no authorization vem tudo junto
   const partes = authHeader.split(' ');
 
   if (partes.length !== 2) {
@@ -23,6 +23,7 @@ function authMiddleware(req, res, next) {
 
   const [tipo, token] = partes;
 
+  //confiro se o tipo do token é esse
   if (tipo !== 'Bearer') {
     return res.status(401).json({
       mensagem: 'Tipo de token inválido',
@@ -35,6 +36,8 @@ function authMiddleware(req, res, next) {
 
     //salvo o id do usuário em req.usuarioId para depois os
     //controller e services usarem esse id pra ver quem está logado
+
+    //eu guardo o id do usuário dentro da requisição
     req.usuarioId = decoded.id;
 
     //libero a rota
